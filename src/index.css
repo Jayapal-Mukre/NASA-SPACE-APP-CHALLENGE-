@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Chakra Petch', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    /* NASA Mission Control Palette */
+    --fs-space-bg: #050914;
+    --fs-navy-surface: #091426;
+    --fs-glass-surface: rgba(11, 22, 42, 0.72);
+    --fs-mission-blue: #1769ff;
+    --fs-cyan: #32d9ff;
+    --fs-emerald: #52e3a4;
+    --fs-amber: #ffb84d;
+    --fs-text-primary: #f4f8ff;
+    --fs-text-telemetry: #8ca2bd;
+    --fs-border-grid: rgba(50, 217, 255, 0.14);
+  }
+
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--fs-space-bg);
+    color: var(--fs-text-primary);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono,
+  .tabular-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Mission Control Surface & Precision Telemetry Grids */
+.mission-glass {
+  background: rgba(9, 20, 38, 0.76);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(50, 217, 255, 0.16);
+}
+
+.mission-panel {
+  background: #091426;
+  border: 1px solid rgba(50, 217, 255, 0.15);
+}
+
+.mission-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(50, 217, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(50, 217, 255, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.mission-glow-cyan {
+  box-shadow: 0 0 28px -8px rgba(50, 217, 255, 0.32);
+}
+
+.mission-glow-emerald {
+  box-shadow: 0 0 28px -8px rgba(82, 227, 164, 0.28);
+}
+
+/* Custom subtle scrollbars for mission control panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050914;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #172742;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #27436e;
+}
+
+/* Cesium & MapLibre clean dark integration */
+.cesium-viewer-bottom {
+  display: none !important;
+}
+
+.cesium-widget-credits {
+  display: none !important;
+}
+
+.maplibregl-ctrl-attrib {
+  background: rgba(5, 9, 20, 0.78) !important;
+  color: #8ca2bd !important;
+  font-size: 10px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #32d9ff !important;
+}
+
+/* Respect accessibility preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

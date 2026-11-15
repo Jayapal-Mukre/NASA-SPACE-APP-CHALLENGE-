@@ -1,0 +1,6 @@
+{
+  "name": "FIELD SHIFT",
+  "description": "NASA Earth Intelligence for Resilient Farming — 3D Earth Explorer, satellite map, soil intelligence, 3D farm digital twin, and AI-powered crop rotation planning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
